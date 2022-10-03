@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Cronômetro Regressivo</title>
+</head>
+<body>
+	<div id="motor">
+		<div id="alarmbox">
+			<div class="pcenter">
+				<input type="text" id="timerhour" value="00" class="timer" >
+				<input type="text" id="timerminute" value="00" class="timer" >
+				<input type="text" id="timersecond" value="00" class="timer" >
+			</div>
+			
+			<div class="pcenter">
+				<input type="button" value="+" onClick="addHour()" class="button2"/>
+				<input type="button" value="-" onClick="subHour()" class="button2"/>
+				<div class="betweenbutton2"></div>
+				<input type="button" value="+" onClick="addMinute()" class="button2"/>
+				<input type="button" value="-" onClick="subMinute()" class="button2"/>
+				<div class="betweenbutton2"></div>
+				<input type="button" value="+" onClick="addSecond()" class="button2"/>
+				<input type="button" value="-" onClick="subSecond()" class="button2"/>
+			</div>
+			
+			<form name="timergo">
+				<input type="button" id="start" name="startstop" value="Iniciar" onClick="timerStart();" class="button1"/>
+				<div class="betweenbutton1"></div>
+				<input type="button" id="reset" name="reset" value="Apagar" onClick="timerReset();" class="button1" />
+			</form>
+		</div>
+		<div class="alarmaudio">
+			<ul>
+			<li>
+				<input type="radio" id="sound0" name="audioalarm" checked="checked"><label for="sound0">Silencioso</label>
+			</li>
+			<li>
+				<input type="radio" id="sound3" name="audioalarm" checked="checked"><label for="sound3">Alarme</label>
+				<audio preload="none" class="audioc" id="audio3">
+					<source src="sound/clock-alarm.wav" type="audio/mpeg">
+					<source src="sound/clock-alarm.ogg" type="audio/ogg">
+					Seu navegador não suporta o elemento de áudio.
+				</audio>
+			</li>
+			
+			<li>
+				<input type="radio" id="sound1" name="audioalarm" onClick="LoadSound('audio1');"><label for="sound1">Música</label>
+				<audio preload="none" class="audioc" id="audio1">
+					<source src="sound/Alarmes-abrigo.mp3" type="audio/mpeg">
+					<source src="sound/Alarmes-abrigo.ogg" type="audio/ogg">
+					Seu navegador não suporta o elemento de áudio.
+				</audio>
+			</li>
+			
+			<li>
+				<input type="radio" id="sound2" name="audioalarm" onClick="LoadSound('audio2');"><label for="sound2">Galo</label>
+				<audio preload="none" class="audioc" id="audio2">
+					<source src="sound/Galo.wav" type="audio/mpeg">
+					<source src="sound/Galo.ogg" type="audio/ogg">
+					Seu navegador não suporta o elemento de áudio.
+				</audio>
+			</li>
+			
+
+			<li>
+				<p><label for="alarmlength">Duração máx</label>: <input type="text" id="alarmlength" value="60" class="dureemax" >s.<span class="alarmspace"></span><a href="javascript:testAlarm();" title="Tester alarme" class="tester">Testar Alarme</a></p>
+			</li>
+			</ul>		
+		</div>
+	</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
